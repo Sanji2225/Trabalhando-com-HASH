@@ -87,6 +87,15 @@ char *maiusc_to_min(char palavra[]){
   return palavra;
 }
 
+void procurar(Tabela tab[], char palavra[]){
+    unsigned int chave = hashcode(palavra);
+    if(tab[chave].quantidade!=0){
+      printf("\npalavra %s na posicao %d, %d vezes\n", tab[chave].palavra, chave, tab[chave].quantidade);
+}
+    else
+      printf("\nNao ha palavra\n");
+    
+}
 
 
 int main()
@@ -143,5 +152,7 @@ int main()
     printf("%d palavras diferentes\n", palavras_diferentes);
     printf("\nO programa demorou %lfs para rodar\n", tempo);
     printf("\nNesse arquivo ha %d palavras \n", num);
+    char proc[]="wayne";
+    procurar(hash_table,  proc);
     return 0;
 }
