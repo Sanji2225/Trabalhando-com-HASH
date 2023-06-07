@@ -47,7 +47,7 @@ int insere_tabela(char *pal, Tabela tabela[], int palavras_diferentes)
     unsigned int chave = hashcode(pal);
     if (tabela[chave].quantidade == 0)
     {
-        tabela[chave].palavra=malloc(sizeof(preposicoes));
+        tabela[chave].palavra=malloc(strlen(pal));
         strcpy(tabela[chave].palavra,pal);
         tabela[chave].quantidade = 1;
         //printf("%s\n", tabela[chave].palavra);
@@ -97,7 +97,7 @@ int main()
         hash_table[t].quantidade = 0;
     }
     char frase[100];
-    float tempo;
+    double tempo;
     time_t t_ini, t_fim;
     int num = 0, ehprep, palavras_diferentes=0;
     char *str;
@@ -141,8 +141,7 @@ int main()
     //printa_table(hash_table);
 
     printf("%d palavras diferentes\n", palavras_diferentes);
-    printf("\nO programa demorou %fs para rodar\n", tempo);
+    printf("\nO programa demorou %lfs para rodar\n", tempo);
     printf("\nNesse arquivo ha %d palavras \n", num);
-    
     return 0;
 }
